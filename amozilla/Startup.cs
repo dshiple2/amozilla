@@ -33,6 +33,9 @@ namespace amozilla
            });
 
             services.AddScoped<IBookRepository, EFBookRepository>();
+            services.AddRazorPages();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,16 +53,33 @@ namespace amozilla
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("typepage",
+                "{bookGenre}/Page{pageNum}",
+                 new {Controller = "Home", action = "Index"});
+
+                endpoints.MapControllerRoute(
+               name: "Paging",
+               pattern: "Page{pageNum}",
+               defaults: new { Controller = "Home", action = "Index", pageNum = 1 });
+
+                endpoints.MapControllerRoute("type",
+                "{bookGenre}",
+                new { Controller = "Home", action = "Index", pageNum = 1 });
+
+               
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapRazorPages();
             });
         }
     }
