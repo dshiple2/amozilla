@@ -103,6 +103,9 @@ namespace amozilla.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<long?>("PurchaseReceivedBookId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("State")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -112,6 +115,8 @@ namespace amozilla.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("PurchaseId");
+
+                    b.HasIndex("PurchaseReceivedBookId");
 
                     b.ToTable("Purchases");
                 });
@@ -125,6 +130,13 @@ namespace amozilla.Migrations
                     b.HasOne("amozilla.Models.Purchase", null)
                         .WithMany("Lines")
                         .HasForeignKey("PurchaseId");
+                });
+
+            modelBuilder.Entity("amozilla.Models.Purchase", b =>
+                {
+                    b.HasOne("amozilla.Models.Book", "PurchaseReceived")
+                        .WithMany()
+                        .HasForeignKey("PurchaseReceivedBookId");
                 });
 #pragma warning restore 612, 618
         }

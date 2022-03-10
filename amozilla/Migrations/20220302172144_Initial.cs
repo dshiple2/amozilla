@@ -8,25 +8,7 @@ namespace amozilla.Migrations
         {
             
 
-            migrationBuilder.CreateTable(
-                name: "Purchases",
-                columns: table => new
-                {
-                    PurchaseId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(nullable: false),
-                    AddressLine1 = table.Column<string>(nullable: false),
-                    AddressLine2 = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: false),
-                    State = table.Column<string>(nullable: false),
-                    Zip = table.Column<string>(nullable: false),
-                    Country = table.Column<string>(nullable: false),
-                    Gift = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Purchases", x => x.PurchaseId);
-                });
+            
 
             migrationBuilder.CreateTable(
                 name: "BasketLineItem",

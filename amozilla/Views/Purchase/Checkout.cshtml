@@ -7,57 +7,57 @@
 <h2>Check Out Now</h2>
 <p>Please enter your details</p>
 
-<form method="post" asp-action="Checkout">
+<form method="post" asp-action="Checkout" class="row g-3">
 
     <div asp-validation-summary="All" class="text-danger"></div>
 
-    <h4>Ship To</h4>
+    <h4 class="form-group col-12">Ship To</h4>
 
-    <div class="form-group">
+    <div class="form-group col-12">
         <label asp-for="Name">Name:</label>
         <input asp-for="Name" class="form-control" />
     </div>
 
-    <h4>Address</h4>
+    <h4 class="form-group col-12">Address</h4>
 
-    <div class="form-group">
+    <div class="form-group col-12">
         <label asp-for="AddressLine1">Address Line 1:</label>
         <input asp-for="AddressLine1" class="form-control" />
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-12">
         <label asp-for="AddressLine2">Address Line 2:</label>
         <input asp-for="AddressLine2" class="form-control" />
     </div>
 
 
-    <div class="form-group">
+    <div class="form-group col-md-6">
         <label asp-for="City">City</label>
         <input asp-for="City" class="form-control" />
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-md-4">
         <label asp-for="State">State</label>
         <input asp-for="State" class="form-control" />
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-md-2">
         <label asp-for="Zip">Zip</label>
         <input asp-for="Zip" class="form-control" />
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-12">
         <label asp-for="Country">Country</label>
         <input asp-for="Country" class="form-control" />
     </div>
 
-    <div class="checkbox">
+    <div class="checkbox form-group col-12">
         <label>
-            <input asp-for="Anonymous" /> Is this a gift?
+            <input asp-for="Gift" /> Is this a gift?
         </label>
     </div>
 
-    <div class="float-end">
+    <div class="float-end form-group col-12">
         <input class="btn btn-primary" type="submit" value="Send Purchase" />
     </div>
 

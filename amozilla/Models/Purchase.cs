@@ -33,9 +33,10 @@ namespace amozilla.Models
         public string Country { get; set; }
 
         
-        public bool Anonymous { get; set; }
-        
+        public bool Gift { get; set; }
 
+        [BindNever]
+        public bool PurchaseReceived { get; set; }
 
 
 
