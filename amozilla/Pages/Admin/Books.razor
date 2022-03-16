@@ -2,7 +2,8 @@
 @page "/admin" 
 @inherits OwningComponentBase<IBookRepository> 
 
-<table class="table table-sm table-striped table-bordered">
+<table class="table table-sm table-striped table-bordered table-hover">
+    <caption>Amozilla Books</caption>
     <thead>
         <tr>
             <th>Book Id</th>
@@ -14,34 +15,34 @@
     <tbody>
 
         @if (BookData?.Count() > 0)
-            {
-                @foreach (Book b in BookData)
-                {
-        <tr>
-            <td>@b.BookId</td>
-            <td>@b.Title</td>
-            <td>@b.Author</td>
-
-
-            <td>
-                <NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(b.BookId)">Details</NavLink>
-            </td>
-            <td>
-                <NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(b.BookId)">Edit</NavLink>
-            </td>
-            <td>
-                <button class="btn btn-danger btn-sm" @onclick="@(x => RemoveBook(b))">Delete</button>
-            </td>
-
-        </tr>
-                }
-            }
-            else
+        {
+            @foreach (Book b in BookData)
             {
                 <tr>
-                    <td colspan="5" class="test-center">No Books</td>
+                    <td>@b.BookId</td>
+                    <td>@b.Title</td>
+                    <td>@b.Author</td>
+
+
+                    <td>
+                        <NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(b.BookId)">Details</NavLink>
+                    </td>
+                    <td>
+                        <NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(b.BookId)">Edit</NavLink>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" @onclick="@(x => RemoveBook(b))">Delete</button>
+                    </td>
+
                 </tr>
             }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="test-center">No Books</td>
+            </tr>
+        }
 
     </tbody>
 </table>

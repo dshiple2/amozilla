@@ -1,25 +1,29 @@
 ﻿@page "/admin"
 @model amozilla.Pages.Admin.IndexModel
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
 @{
+
 }
+
 
 <DOCTYPE html>
 
-<html>
+    <html>
 
-<head>
-    <title>Amozilla Admin</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <base href='/' /> 
-</head>
+    <head>
+        <title>Amozilla Admin</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <base href='/' />
+    </head>
 
 
-<body>
+    <body>
 
-    <component type="typeof(Routed)" render-mode="Server" />
-    <script src="/_framework/blazor.server.js"></script>
+        <component type="typeof(Routed)" render-mode="Server" />
+        <script src="/_framework/blazor.server.js"></script>
 
-</body>
+    </body>
 
 
 </html>
